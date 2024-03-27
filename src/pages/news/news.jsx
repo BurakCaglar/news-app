@@ -34,7 +34,6 @@ const News = () => {
   const {
     news: {
       loading,
-      error,
       data: { articles },
     },
     sources: { categories },
@@ -89,7 +88,7 @@ const News = () => {
 
   const renderArticles = articles?.map((article, index) => {
     if (isOpenReadList && !article.favorite) {
-      return;
+      return "";
     }
 
     return (

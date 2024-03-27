@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 /* Packages */
-import ReactDOM from "react-dom";
 import Carousel, { consts } from "react-elastic-carousel";
 
 /* Style */
@@ -28,18 +27,6 @@ const myArrow = ({ type, onClick, isEdge }) => {
 };
 
 const Slider = ({ children }) => {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-
-  const addItem = () => {
-    const nextItem = Math.max(1, items.length + 1);
-    setItems([...items, nextItem]);
-  };
-
-  const removeItem = () => {
-    const endRange = Math.max(0, items.length - 1);
-    setItems(items.slice(0, endRange));
-  };
-
   return (
     <>
       <div className="carousel-wrapper">

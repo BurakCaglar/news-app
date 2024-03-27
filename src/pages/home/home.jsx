@@ -26,7 +26,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
-    sources: { loading, error, categories, data },
+    sources: { loading, categories, data },
   } = useSelector((state) => state.news);
   useEffect(() => {
     dispatch(fetchSources());

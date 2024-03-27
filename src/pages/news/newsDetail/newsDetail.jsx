@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 /* Packages */
 import { useParams, useNavigate } from "react-router-dom";
@@ -30,12 +30,7 @@ const NewsDetail = () => {
   const navigate = useNavigate();
   const { sourceTitle } = useParams();
   const {
-    news: {
-      loading,
-      error,
-      data: { articles },
-      selectedArticle,
-    },
+    news: { loading, selectedArticle },
   } = useSelector((state) => state.news);
 
   useEffect(() => {
