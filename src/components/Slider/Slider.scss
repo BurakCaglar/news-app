@@ -1,0 +1,42 @@
+.seperator {
+  width: 100%;
+}
+
+.controls-wrapper {
+  width: 100%;
+}
+
+.carousel-wrapper {
+  width: 100%;
+}
+
+.rec.rec-arrow {
+  color: red;
+  background-color: transparent !important;
+  border: transparent !important;
+}
+
+.rec-dot {
+  background-color: #c9dbee !important;
+  box-shadow: none !important;
+}
+
+.rec-dot_active {
+  background-color: #052c54 !important;
+}
+
+.rec-slider-container {
+  margin: 0 !important;
+}
+
+.rec-item-wrapper {
+  @media screen and (mmin-width: 992px) {
+    max-width: 300px !important;
+  }
+}
+
+.rec-carousel-item {
+  &:not(:first-child) {
+    margin-left: 80px;
+  }
+}
