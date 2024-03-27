@@ -27,7 +27,7 @@ const CardNews = ({
         <img
           className={`rounded-xl max-h-100 md:max-h-52 ${imageClassName}`}
           src={image}
-          alt={`${title} image`}
+          alt={title}
         />
       </div>
       {title && (

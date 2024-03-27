@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 /* Store */
 import { useParams, useNavigate } from "react-router-dom";
@@ -28,9 +28,11 @@ import Loader from "../../components/Loader/Loader";
 
 const News = () => {
   const [isOpenReadList, setIsOpenReadList] = useState(false);
+  const isLoaded = useRef(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { sourceName } = useParams();
+  const ONE_MINUTE = 60000;
   const {
     news: {
       loading,
@@ -40,16 +42,23 @@ const News = () => {
   } = useSelector((state) => state.news);
 
   useEffect(() => {
+    let interval;
     if (sourceName) {
       dispatch(fetchNews({ sourceName }));
 
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         dispatch(fetchNews({ sourceName }));
-      }, 10000);
-
-      return () => clearInterval(interval);
+      }, ONE_MINUTE);
     }
+
+    return () => clearInterval(interval);
   }, [sourceName]);
+
+  useEffect(() => {
+    if (!isLoaded.current) {
+      isLoaded.current = true;
+    }
+  }, [articles?.length]);
 
   function handleCardClick(article) {
     navigate(
@@ -107,7 +116,7 @@ const News = () => {
     );
   });
 
-  if (loading) {
+  if (loading && !isLoaded.current) {
     return <Loader />;
   }
 

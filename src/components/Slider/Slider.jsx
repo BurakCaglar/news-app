@@ -35,6 +35,7 @@ const Slider = ({ children }) => {
           renderArrow={myArrow}
           autoPlaySpeed={5000}
           breakPoints={breakPoints}
+          enableAutoPlay
         >
           {children}
         </Carousel>
